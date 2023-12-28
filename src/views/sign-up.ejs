@@ -1,0 +1,48 @@
+<%- include("partials/header.ejs") %>
+
+<section class="container">
+  <div class="row justify-content-center">
+    <h1 class="text-center my-5">Register New Member</h1>
+    <form class="col-xl-4" method="POST" action="/sign-up">
+ 
+      <div class="form-outline mb-2">
+        <input type="email" name="username" class="form-control" />
+        <label class="form-label" for="username">Email address</label>
+      </div>
+      
+
+      <div class="form-outline mb-2">
+        <input type="text" name="firstname" class="form-control" />
+        <label class="form-label" for="firstname">First Name</label>
+      </div>   
+      
+      <div class="form-outline mb-2">
+        <input type="text" name="lastname" class="form-control" />
+        <label class="form-label" for="lastname">Last Name</label>
+      </div>   
+      
+      <div class="form-outline mb-2">
+        <input type="password" name="password" class="form-control" />
+        <label class="form-label" for="password">Password</label>
+      </div>
+
+      
+      <div class="form-outline mb-3">
+        <input type="password" name="confirm-password" class="form-control" />
+        <label class="form-label" for="confirm-password">Confirm Password</label>
+      </div>
+      
+  
+      
+    
+      <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+      
+     
+    </form>
+    
+    </div>
+  </section>
+
+  <%- include("partials/footer.ejs") %>
+
+

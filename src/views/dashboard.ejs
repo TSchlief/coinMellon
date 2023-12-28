@@ -1,0 +1,69 @@
+<%- include("partials/header.ejs") %>
+    <section class="container-xl">
+        <div class="row justify-content-center">
+            <p class="text-center mt-5"> Welcome 
+                <%= locals.user? locals.user.firstname : "" %> 
+                <%= locals.user? locals.user.lastname : "" %>!</p>
+            <h1 class="text-center mb-5">My Assets</h1>
+        </div>
+    </section>
+
+    <section class="container-xl ">
+        <div class="row border border-secondary rounded mb-1">
+            <div class="col-1 ">
+           
+            </div>
+            <div class="col ">
+                <p class="m-0 pt-1">Currency</p>
+            </div>
+            <div class="col d-flex  align-items-center justify-content-center">
+                <p>Price USD</p>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <p>Amount</p>
+            </div>
+            <div class="col-3 d-flex align-items-center justify-content-end">
+                <p>Value</p>
+            </div>
+        </div>
+
+        <% if(locals.user && locals.coinData) { %>
+
+            <% const assets = locals.user.assets; %>
+            <% const assetKeys = Object.keys(assets); %>
+            <% const coinList = locals.coinData.coinList; %>
+            <% for(let i = 0; i < assetKeys.length; i++) {%>
+                <% const asset = assetKeys[i]; %>
+                <% if(assets[asset] === 0){break;} %>
+                <% const coin = coinList[assetKeys[i]]; %>
+                <% const coinPrice = coinData.roundFigs(coin.price, 4) %>
+
+                <% const coinAmount = coinData.roundFigs(assets[asset], 4) %>
+                <% const value = coinData.roundFigs(assets[asset] * parseFloat(coin.price), 4) %>
+                <a class="nav-link" href="/buy?coin=<%= asset %>">
+
+                    <div class="row border border-secondary rounded mb-1">
+                        <div class="col-1 d-flex">
+                            <img src=<%= coin.svg %> class="img-fluid p-1 mx-auto" width="75px" alt="...">
+                        </div>
+                        <div class="col ">
+                            <p class="m-0 pt-1"><%= coin.name %></p>
+                            <p class="m-0 pb-1"><%= coin.symbol %></p>
+                        </div>
+                        <div class="col d-flex  align-items-center justify-content-center">
+                            <p><%= coinPrice %></p>
+                        </div>
+                        <div class="col d-flex align-items-center justify-content-center">
+                            <p><%= coinAmount %></p>
+                        </div>
+                        <div class="col-3 d-flex align-items-center justify-content-end">
+                            <p>US$ <%= value %></p>
+                        </div>
+                    </div>
+                </a>
+            <% } %>    
+        <% } %>
+    </section>
+    
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Melon slice body -->
+  <path d="M50,50 L50,0 A50,50 0 0,1 100,50 Z" fill="#FFA500" />
+
+  <!-- Seeds (optional) -->
+  <circle cx="60" cy="20" r="2" fill="black" />
+  <circle cx="70" cy="30" r="2" fill="black" />
+  <circle cx="80" cy="40" r="2" fill="black" />
+</svg>

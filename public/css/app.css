@@ -1,0 +1,41 @@
+:root{
+    --primary-color: rgb(202, 201, 221);
+    --secondary-color: rgb(119, 149, 226);
+    --accent-color: teal;
+}
+body{
+    background-color: var(--primary-color)!important;
+}
+#navbar {
+    background-color: var(--primary-color) !important;
+}
+
+.primary{
+
+    background-color: var(--primary-color)!important;
+}
+.secondary{
+
+    background-color: var(--secondary-color)!important;
+}
+h1{
+    font-size: 48px;
+}
+.p28{
+    font-size: 28px;
+}
+p{
+    font-size: 20px;
+}
+#footer{
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    bottom: 0;
+    background-color: var(--primary-color);
+}
