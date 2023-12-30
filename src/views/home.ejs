@@ -3,7 +3,7 @@
    <section class="container-xl py-5">
         <div class="row justify-content-evenly ">
             <div class="col-md-5 p-5">
-                <h1>Welcome to the World's best crypto exchange platform.</h1>
+                <h2>Welcome to the World's best crypto exchange platform.</h2>
                 <p>Join others in a safe, simple and secure crypto experience.</p>
                 <form action="/sign-up" method="GET">
                     <button class="btn btn-outline-success" type="submit">Sign up</button>
@@ -18,10 +18,10 @@
     <section class="container-fluid mb-5 py-3 secondary" >
         <div class="row justify-content-evenly ">
             <div class="col-md-3 col-lg-2 d-flex align-items-center justify-content-center">
-                <p class="text-center fs-3 ">Your safe and secure platform for digital currency.</p>
+                <p class="text-center fs-4 ">Your safe and secure platform for digital currency.</p>
             </div>
             <div class="col-md-3 col-lg-2  d-flex align-items-center justify-content-center" >
-                <p class="text-center fs-3 align-middle">Fully insured and compliant.</p>
+                <p class="text-center fs-4 align-middle">Fully insured and compliant.</p>
             </div>
             <div class="col-md-3 col-lg-2 d-flex align-items-center justify-content-center">
                 
@@ -41,7 +41,7 @@
                 
                     <% const coin = locals.coinData.getCoin(tickers[i]) %>
                     <div class="card m-2 col-lg-2 col-md-3 col-sm-5 rounded-5 border border-black d-flex align-items-center" >
-                        <img src=<%= coin.svg %> class="img-fluid pt-4" width="75px" alt="...">
+                        <img src=<%= coin.svg %> class="img-fluid pt-4" width="50px" alt="...">
                     
                         <p class="card-text  text-center"><%= coin.name %></p>
                         <p class="card-text  text-center">$<%= coin.price %> USD</p>
