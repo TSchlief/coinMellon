@@ -1,29 +1,29 @@
 <%- include("partials/header.ejs") %>
     <section class="container-xl">
         <div class="row justify-content-center">
-            <p class="text-center mt-5"> Welcome 
+            <p class="text-center mt-5 fs-sm-3"> Welcome 
                 <%= locals.user? locals.user.firstname : "" %> 
                 <%= locals.user? locals.user.lastname : "" %>!</p>
-            <h1 class="text-center mb-5">My Assets</h1>
+            <h1 class="text-center mb-5 fs-1">My Assets</h1>
         </div>
     </section>
 
-    <section class="container-xl ">
+    <section class="container">
         <div class="row border border-secondary rounded mb-1">
             <div class="col-1 ">
            
             </div>
             <div class="col ">
-                <p class="m-0 pt-1">Currency</p>
+                <p class="m-0 pt-1 fs-sm-4">Currency</p>
             </div>
             <div class="col d-flex  align-items-center justify-content-center">
-                <p>Price USD</p>
+                <p class="fs-sm-4">Price</p>
             </div>
             <div class="col d-flex align-items-center justify-content-center">
-                <p>Amount</p>
+                <p class="fs-sm-4">Amount</p>
             </div>
             <div class="col-3 d-flex align-items-center justify-content-end">
-                <p>Value</p>
+                <p class="fs-sm-4">Value</p>
             </div>
         </div>
 
@@ -50,17 +50,17 @@
                             <img src=<%= coin.svg %> class="img-fluid p-1 mx-auto" width="75px" alt="...">
                         </div>
                         <div class="col ">
-                            <p class="m-0 pt-1"><%= coin.name %></p>
-                            <p class="m-0 pb-1"><%= coin.symbol %></p>
+                            <p class="m-0 pt-1 fs-sm-4"><%= coin.name %></p>
+                            <p class="m-0 pb-1 fs-sm-4"><%= coin.symbol %></p>
                         </div>
                         <div class="col d-flex  align-items-center justify-content-center">
-                            <p><%= coinPrice %></p>
+                            <p class="fs-sm-4"><%= coinPrice %></p>
                         </div>
                         <div class="col d-flex align-items-center justify-content-center">
-                            <p><%= coinAmount %></p>
+                            <p class="fs-sm-4"><%= coinAmount %></p>
                         </div>
                         <div class="col-3 d-flex align-items-center justify-content-end">
-                            <p>US$ <%= value %></p>
+                            <p class="fs-sm-4">$<%= value %></p>
                         </div>
                     </div>
                 </a>

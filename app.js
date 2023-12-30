@@ -82,7 +82,7 @@ async function setPrices(){
             coinsQuery + 
             "&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en";
 
-        //const result = await axios.get(queryString);
+        const result = await axios.get(queryString);
         
     } catch (error) {
         console.error('Error fetching tickers:', error.message);
