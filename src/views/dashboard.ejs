@@ -34,13 +34,16 @@
             <% const coinList = locals.coinData.coinList; %>
             <% for(let i = 0; i < assetKeys.length; i++) {%>
                 <% const asset = assetKeys[i]; %>
-                <% if(assets[asset] === 0){break;} %>
+                <% if(assets[asset] === 0){continue;} %>
                 <% const coin = coinList[assetKeys[i]]; %>
+                <% console.log(coin) %>
+                <% console.log(assetKeys) %>
+                <% console.log(assetKeys[i]) %>
                 <% const coinPrice = coinData.roundFigs(coin.price, 4) %>
 
                 <% const coinAmount = coinData.roundFigs(assets[asset], 4) %>
                 <% const value = coinData.roundFigs(assets[asset] * parseFloat(coin.price), 4) %>
-                <a class="nav-link" href="/buy?coin=<%= asset %>">
+                <a class="nav-link <%= asset === "usd"? "disabled-link" : "" %>"  href="/buy?coin=<%= asset %>">
 
                     <div class="row border border-secondary rounded mb-1">
                         <div class="col-1 d-flex">

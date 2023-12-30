@@ -18,6 +18,9 @@ body{
 
     background-color: var(--secondary-color)!important;
 }
+.nav-bg{
+    background-color:  rgb(242, 241, 247)!important;
+}
 h1{
     font-size: 48px;
 }
@@ -38,4 +41,9 @@ p{
     width: 100%;
     bottom: 0;
     background-color: var(--primary-color);
+}
+
+.disabled-link{
+    pointer-events: none; 
+    cursor: not-allowed;
 }

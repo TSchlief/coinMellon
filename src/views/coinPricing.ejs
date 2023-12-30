@@ -1,0 +1,67 @@
+<%- include("partials/header.ejs") %>
+
+<div style="overflow:auto;">
+
+    <section class="container-lg my-5 pb-3  " style="min-width: 800px;">
+
+            <h1 class="text-md-center my-5">Coin Pricing</h1>
+            <div class="row p-2 rounded border border-secondary d-flex align-items-center " >
+                <div class="col-1"></div>
+                <div class="col-1">
+                    <p class="card-text  text-center">Currency</p>
+                </div>
+                <div class="col-2">
+                    <p class="card-text  text-center">Price</p>
+                </div>
+                <div class="col-2">
+                    <p class="card-text  text-center">Change</p>
+                </div>
+                <div class="col-2">
+                    <p class="card-text  text-center">Volume</p>
+                </div>
+                <div class="col-2">
+                    <p class="card-text  text-center">Low(24h)</p>
+                </div>
+                <div class="col-2">
+                    <p class="card-text  text-center">High(24h)</p>
+                </div>
+            </div>
+            
+            <% if(locals.coinData) { %>
+                <% const tickers = locals.coinData.getTickers() %>
+                <% for (let i = 1; i < tickers.length; i++) { %>
+                    <% const coin = locals.coinData.getCoin(tickers[i]) %>
+                    <a class="nav-link row rounded border border-secondary d-flex align-items-center" href="/buy?coin=<%= tickers[i] %>">
+                        <div class="col-1 d-flex">
+                            <img src=<%= coin.svg %> class="img-fluid py-1 mx-auto" width="50px" alt="...">
+                        </div>
+                        <div class="col-1">
+                            <p class="card-text  text-center"><%= coin.symbol %></p>
+                        </div>
+                        <div class="col-2">
+                            <p class="card-text  text-center">$<%= coinData.roundFigs(coin.price, 3) %></p>
+                        </div>
+                        <div class="col-2">
+                            <p class="card-text  text-center <%= parseFloat(coin.price_change_percentage_24h) < 0? "text-success" : "text-danger" %> "><%= coinData.roundFigs(coin.price_change_percentage_24h, 3) %>%</p>
+                        </div>
+                        <div class="col-2">
+                            <p class="card-text  text-center"><%= coinData.roundFigs(coin.total_volume, 3) %></p>
+                        </div>
+                        <div class="col-2">
+                            <p class="card-text  text-center">$<%= coinData.roundFigs(coin.low_24h, 3) %></p>
+                        </div>
+                        <div class="col-2">
+                            <p class="card-text  text-center">$<%= coinData.roundFigs(coin.high_24h, 3) %></p>
+                        </div>
+                    </a>
+                    <% } %>
+                    <% } %>
+                </section>
+                <section class="container pb-5">
+                    
+                </section>
+            </div>
+                
+                
+                
+                <%- include("partials/footer.ejs") %>
