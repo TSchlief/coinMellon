@@ -1,14 +1,14 @@
 <%- include("partials/header.ejs") %>
-    <section class="container-xl">
+    <section class="container mt-5">
         <div class="row justify-content-center">
-            <p class="text-center mt-5 fs-sm-3"> Welcome 
+            <p class="text-center fs-sm-3"> Welcome 
                 <%= locals.user? locals.user.firstname : "" %> 
                 <%= locals.user? locals.user.lastname : "" %>!</p>
             <h2 class="text-center mb-5 fs-1">My Assets</h2>
         </div>
     </section>
 
-    <section class="container">
+    <section class="container mb-5">
         <div class="row border border-secondary rounded mb-1">
             <div class="col-1 ">
            
