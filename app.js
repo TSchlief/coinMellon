@@ -6,6 +6,7 @@ import axios from 'axios';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import  CoinData  from './public/js/coinData.js';
+import { error } from 'console';
 
 
 const app = express();
@@ -81,8 +82,7 @@ async function setPrices(){
             coinsQuery + 
             "&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en";
 
-        const result = await axios.get(queryString);
-        coinData.updatePrices(result.data);
+        //const result = await axios.get(queryString);
         
     } catch (error) {
         console.error('Error fetching tickers:', error.message);
@@ -215,24 +215,27 @@ app.post("/sell", requireAuth, (req, res)=>{
 });
 
 app.post("/sign-up", (req, res)=>{
-    const { username, firstname, lastname, password } = req.body;
+    const { username, firstname, lastname, password, confirmPassword } = req.body;
     if(users.find(user => user.username === username)){
-        res.redirect("/sign-up");
+        res.render(__views + "/sign-up.ejs", {invalid: "Email already used."});
+    }else if(password !== confirmPassword){
+        res.render(__views + "/sign-up.ejs", {invalid: "Passwords do not match."});
+    }else{
+        const hashedPassword = bcrypt.hashSync(password, 10);
+        const newUser = {
+            id: users.length + 1,
+            username: username,
+            firstname: firstname,
+            lastname: lastname,
+            password: hashedPassword,
+            assets: {
+                "usd": 1000,
+            }
+        };
+        users.push(newUser);
+        req.session.user = newUser;
+        res.redirect("/dashboard");
     }
-    const hashedPassword = bcrypt.hashSync(password, 10);
-    const newUser = {
-        id: users.length + 1,
-        username: username,
-        firstname: firstname,
-        lastname: lastname,
-        password: hashedPassword,
-        assets: {
-            "usd": 1000,
-        }
-    };
-    users.push(newUser);
-    req.session.user = newUser;
-    res.redirect("/dashboard");
 });
 
 app.post("/login", (req, res)=>{
@@ -244,8 +247,7 @@ app.post("/login", (req, res)=>{
         
         res.redirect("/dashboard");
     } else {
-        console.log("Login Failed")
-        res.redirect("/login");
+        res.render(__views + "/login.ejs", {invalid: "Email or password incorrect."});
     }
 });
 

@@ -10,27 +10,31 @@
         <label class="form-label" for="username">Email address</label>
       </div>
       
-
       <div class="form-outline mb-5">
         <input type="password" name="password" class="form-control" />
         <label class="form-label" for="password">Password</label>
       </div>
       
   
+      <% if(locals.invalid) { %>
+        <p class="mb-1 fs-4 text-danger"><%= locals.invalid %></p>
+      <% } %>
+
       <div class="row mb-2">
         <div class="col">
           <a href="/forgot-password">Forgot password?</a>
         </div>
       </div>
-      
     
       <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
       
-      
       <div class="text-center">
         <p>Not a member? <a href="/sign-up">Register</a></p>
-        
       </div>
+
+      <h4>Demo Account:</h4>  
+      <h6>Email: test@coinmellon.com</h6>  
+      <h6>Password: 1234</h6>  
     </form>
     
     </div>

@@ -6,33 +6,36 @@
     <form class="col-xl-4 col-lg-5 col-md-6 col-sm-7" method="POST" action="/sign-up">
  
       <div class="form-outline mb-2">
-        <input type="email" name="username" class="form-control" />
+        <input type="email" name="username" class="form-control" required/>
         <label class="form-label" for="username">Email address</label>
       </div>
       
 
       <div class="form-outline mb-2">
-        <input type="text" name="firstname" class="form-control" />
+        <input type="text" name="firstname" class="form-control" required/>
         <label class="form-label" for="firstname">First Name</label>
       </div>   
       
       <div class="form-outline mb-2">
-        <input type="text" name="lastname" class="form-control" />
+        <input type="text" name="lastname" class="form-control" required/>
         <label class="form-label" for="lastname">Last Name</label>
       </div>   
       
       <div class="form-outline mb-2">
-        <input type="password" name="password" class="form-control" />
+        <input type="password" name="password" class="form-control" required/>
         <label class="form-label" for="password">Password</label>
       </div>
 
       
       <div class="form-outline mb-3">
-        <input type="password" name="confirm-password" class="form-control" />
-        <label class="form-label" for="confirm-password">Confirm Password</label>
+        <input type="password" name="confirmPassword" class="form-control" required/>
+        <label class="form-label" for="confirmPassword">Confirm Password</label>
       </div>
       
-  
+      
+      <% if(locals.invalid) { %>
+          <p class="mb-1 fs-4 text-danger"><%= locals.invalid %></p>
+      <% } %>
       
     
       <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
