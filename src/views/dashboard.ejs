@@ -10,20 +10,20 @@
 
     <section class="container mb-5">
         <div class="row border border-secondary rounded mb-1">
-            <div class="col-1 ">
+            <div class="col-3 ">
            
             </div>
-            <div class="col ">
-                <p class="m-0 pt-1 fs-sm-4">Currency</p>
+            <div class="col-2 ">
+                <p class="m-0 p-1 fs-sm-4 my-auto">Currency</p>
             </div>
-            <div class="col d-flex  align-items-center justify-content-center">
-                <p class="fs-sm-4">Price</p>
+            <div class="col-2 d-flex  align-items-center justify-content-center">
+                <p class="fs-sm-4 my-auto">Price</p>
             </div>
-            <div class="col d-flex align-items-center justify-content-center">
-                <p class="fs-sm-4">Amount</p>
+            <div class="col-2 d-flex align-items-center justify-content-center">
+                <p class="fs-sm-4 my-auto">Amount</p>
             </div>
             <div class="col-3 d-flex align-items-center justify-content-end">
-                <p class="fs-sm-4">Value</p>
+                <p class="fs-sm-4 my-auto">Value</p>
             </div>
         </div>
 
@@ -46,21 +46,20 @@
                 <a class="nav-link <%= asset === "usd"? "disabled-link" : "" %>"  href="/buy?coin=<%= asset %>">
 
                     <div class="row border border-secondary rounded mb-1">
-                        <div class="col-1 d-flex">
+                        <div class="col-3 d-flex">
                             <img src=<%= coin.svg %> class="img-fluid p-1 mx-auto" width="75px" alt="...">
                         </div>
-                        <div class="col ">
-                            <p class="m-0 pt-1 fs-sm-4"><%= coin.name %></p>
-                            <p class="m-0 pb-1 fs-sm-4"><%= coin.symbol %></p>
+                        <div class="col-2 d-flex align-items-center justify-content-center">
+                            <p class="m-0 fs-sm-4 my-auto"><%= coin.name %></p>
                         </div>
-                        <div class="col d-flex  align-items-center justify-content-center">
-                            <p class="fs-sm-4"><%= coinPrice %></p>
+                        <div class="col-2 d-flex align-items-center justify-content-center">
+                            <p class="fs-sm-4 my-auto"><%= coinPrice %></p>
                         </div>
-                        <div class="col d-flex align-items-center justify-content-center">
-                            <p class="fs-sm-4"><%= coinAmount %></p>
+                        <div class="col-2 d-flex align-items-center justify-content-center">
+                            <p class="fs-sm-4 my-auto"><%= coinAmount %></p>
                         </div>
                         <div class="col-3 d-flex align-items-center justify-content-end">
-                            <p class="fs-sm-4">$<%= value %></p>
+                            <p class="fs-sm-4 my-auto">$<%= value %></p>
                         </div>
                     </div>
                 </a>
